@@ -1,0 +1,33 @@
+version: '3'
+services:
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:8-oracle
+    environment:
+      - MYSQL_ROOT_PASSWORD= Test@123
+      - MYSQL_USERNAME= root
+      - MYSQL_DATABASE= associate_management_system
+
+
+  full-stack-application:
+    container_name: full-stack
+
+    build:
+      dockerfile: Dockerfile
+
+    environment:
+    - MYSQL_ROOT_PASSWORD= Test@123
+    - MYSQL_USERNAME= root
+    - MYSQL_DATABASE= associate_management_system
+
+    depends_on:
+      - mysqldb
+
+
+
+
+
+
+
+
+
